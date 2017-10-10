@@ -1,0 +1,41 @@
+<h1 class = "mt-4">Roles</h1>
+<div class = "controls mt-4">
+  <button class = "btn btn-primary" routerLink = "/roles/add">
+    <strong>Add New Role</strong>
+  </button>
+</div>
+<table class = "table mt-4" [ngClass] = "{'table-hover': roles.length}" >
+  <thead *ngIf = "roles.length">
+    <tr>
+      <th>Role Name</th>
+      <th>Role Description</th>
+      <th class = "text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let role of roles">
+      <td>{{role.roleName}}</td>
+      <td>{{role.roleDescription}}</td>
+      <td class = "text-center">
+        <button class = "btn btn-secondary btn-sm" [disabled] = "!role._id" 
+        [routerLink] = "['/roles/view/', role._id]">
+          <span class = "fa fa-eye"></span>
+        </button>
+        <button class = "btn btn-warning btn-sm" [disabled] = "!role._id"
+        [routerLink] = "['/roles/edit/', role._id]">
+          <span class = "fa fa-edit"></span>
+        </button>
+        <button class = "btn btn-danger btn-sm" [disabled] = "!role._id || role.users"
+        [routerLink] = "['/roles', {outlets: {empty: ['delete', role._id]}}]"
+        skipLocationChange>
+          <span class = "fa fa-times-circle-o"></span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf = "!roles.length">
+      <td colspan = "3" class = "text-center text-muted">
+        <strong>No roles in the database</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>

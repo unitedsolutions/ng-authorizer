@@ -1,0 +1,62 @@
+<h1 class = "mt-4">{{view?.title}}</h1>
+<form #f = "ngForm" novalidate>
+  <p class = "ng-roles-section-title">
+    <strong>Role Information</strong>
+  </p>
+  <input type = "hidden" name = "_id" ngModel />
+  <div class="form-group row">
+    <label class="col col-md-auto col-form-label">Role Name: </label>
+    <div class="col-4">
+      <input class="form-control" type="text" name = "roleName" ngModel 
+      required autocomplete = "off" [disabled] = "view?.inputDisabled">
+    </div>
+  </div>
+  <div class = "form-group row">
+    <label class="col col-md-auto col-form-label">Role Description: </label>
+    <div class="col-4">
+      <input class="form-control" type="search" name = "roleDescription" 
+      ngModel required autocomplete = "off" [disabled] = "view?.inputDisabled">
+    </div>
+  </div>
+  <p class = "ng-roles-section-title">
+    <strong>Role Actions</strong>
+  </p>
+  <table class = "table mt-4" [ngClass] = "{'table-hover': !view?.isView}">
+    <thead>
+      <tr>
+        <th class = "text-center"><span class = "fa" 
+        [ngClass] = "circleClass(routes.selected)" 
+        (click) = "toggleAll()"></span></th>
+        <th>Module</th>
+        <th>Application</th>
+        <th>Route</th>
+        <th class = "text-center">Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let route of routes">
+        <td class = "text-center">
+          <span class = "fa" [ngClass] = "circleClass(route.selected)" 
+          (click) = "toggler(route)"></span>
+        </td>
+        <td>{{route.parent}}</td>
+        <td>{{route.label}}</td>
+        <td>{{route.path}}</td>
+        <td class = "text-center">
+          <span class = "fa" [ngClass] = "circleClass(route.default)" 
+          (click) = "defaulter(route)"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class = "mt-4">
+    <button *ngIf = "!view?.isView" class = "btn btn-primary" 
+    (click) = "sendData()" [disabled] = "f.invalid || !selectedRoutes?.length">
+      <strong>{{view?.submitButtonTitle}}</strong>
+    </button>
+    <button type = "button" class = "btn btn-secondary ml-2" 
+    routerLink = "/roles/list">
+      <strong>{{view?.cancelButtonTitle}}</strong>
+    </button>    
+  </div>
+</form>

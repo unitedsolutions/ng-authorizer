@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../tmp/add-edit-view/data-sender/_lib/notification-messages.ts"],"names":[],"mappings":"AAAA,eAAe;IACb,KAAK,EAAE,sBAAsB;IAC7B,IAAI,EAAE,oBAAoB;CAC3B,CAAC","file":"notification-messages.js","sourceRoot":"","sourcesContent":["export default {\n  patch: 'The role was updated',\n  post: 'The role was added'\n};\n"]}

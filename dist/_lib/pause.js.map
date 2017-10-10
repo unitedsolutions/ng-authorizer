@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../tmp/_lib/pause.ts"],"names":[],"mappings":"AAAA,eAAe,UAAC,EAAG,IAAK,OAAA,IAAI,OAAO,CAAC,UAAA,OAAO,IAAI,OAAA,UAAU,CAAC,OAAO,EAAE,EAAE,IAAI,CAAC,CAAC,EAA5B,CAA4B,CAAC,EAApD,CAAoD,CAAC","file":"pause.js","sourceRoot":"","sourcesContent":["export default (ms?) => new Promise(resolve => setTimeout(resolve, ms || 0));\n"]}
