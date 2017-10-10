@@ -815,6 +815,7 @@ var AuthorizerModule = /** @class */ (function () {
 }());
 
 exports.AuthorizerModule = AuthorizerModule;
+exports.RolesDataResolverService = RolesDataResolverService;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
