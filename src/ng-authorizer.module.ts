@@ -12,6 +12,7 @@ import {DeleteConfirmerService}   from './_services/delete-confirmer.service';
 import {NotifierComponentsModule} from 'ng-notifier';
 import {NotifierServicesModule}   from 'ng-notifier';
 import {DataStateModule}          from 'ng-data-state';
+import { GuardianModule }          from 'ng-guardian';
 
 let rolesRoutes = [
   {
@@ -70,6 +71,7 @@ let rolesRoutes = [
     NotifierComponentsModule,
     NotifierServicesModule,
     DataStateModule,
+    GuardianModule,
     RouterModule.forChild(rolesRoutes)
   ],
   providers: [
