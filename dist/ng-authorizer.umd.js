@@ -795,6 +795,7 @@ var AuthorizerModule = /** @class */ (function () {
                         ngNotifier.NotifierComponentsModule,
                         ngNotifier.NotifierServicesModule,
                         ngDataState.DataStateModule,
+                        ngGuardian.GuardianModule,
                         router.RouterModule.forChild(rolesRoutes)
                     ],
                     providers: [
