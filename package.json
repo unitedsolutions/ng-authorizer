@@ -35,7 +35,7 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "ng-data-state": "git+ssh://git@github.com/unitedsolutions/ng-data-state.git#c8082a626de10c370206c8f39e9f0f4dfd23364a",
-    "ng-guardian": "git+ssh://git@github.com/unitedsolutions/ng-guardian.git#1.0.3",
+    "ng-guardian": "git+ssh://git@github.com/unitedsolutions/ng-guardian.git#1.0.4",
     "ng-http-client-plus": "git+ssh://git@github.com/unitedsolutions/ng-http-client-plus.git#169726283a85772116610f85525cdf7cfc14f197",
     "ng-notifier": "git+ssh://git@github.com/unitedsolutions/ng-notifier.git#64154c26311d53564004e303f4af5dc601fd1cde"
   },
