@@ -35,7 +35,7 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "ng-data-state": "git+ssh://git@github.com/unitedsolutions/ng-data-state.git#c8082a626de10c370206c8f39e9f0f4dfd23364a",
-    "ng-guardian": "git+ssh://git@github.com/unitedsolutions/ng-guardian.git#1.0.4",
+    "ng-guardian": "git+ssh://git@github.com/unitedsolutions/ng-guardian.git#1.1",
     "ng-http-client-plus": "git+ssh://git@github.com/unitedsolutions/ng-http-client-plus.git#169726283a85772116610f85525cdf7cfc14f197",
     "ng-notifier": "git+ssh://git@github.com/unitedsolutions/ng-notifier.git#64154c26311d53564004e303f4af5dc601fd1cde"
   },
@@ -84,6 +84,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.5",
     "less": "^2.7.2",
+    "nan": "^2.11.1",
     "phantomjs-prebuilt": "^2.1.16",
     "rimraf": "^2.6.1",
     "rollup": "^0.48.2",
