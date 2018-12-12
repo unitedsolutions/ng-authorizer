@@ -26,34 +26,37 @@ var rolesRoutes = [
             {
                 path: '',
                 redirectTo: 'list',
-                pathMatch: 'full'
+                pathMatch: 'full',
+                link: true,
+                label: 'Manage Roles',
+                group: 'settings',
             },
             {
                 path: 'list',
                 component: ListComponent,
-                group: 'roles'
+                group: 'settings'
             },
             {
                 path: 'add',
                 component: AddEditViewComponent,
-                group: 'roles'
+                group: 'settings'
             },
             {
                 path: 'view/:id',
                 label: 'View',
                 component: AddEditViewComponent,
-                group: 'roles'
+                group: 'settings'
             },
             {
                 path: 'edit/:id',
                 label: 'Edit',
                 component: AddEditViewComponent,
-                group: 'roles'
+                group: 'settings'
             },
             {
                 path: 'delete/:id',
                 label: 'Delete',
-                group: 'roles',
+                group: 'settings',
                 component: DeleteComponent,
                 outlet: 'empty',
                 canActivate: [DeleteConfirmerService]
