@@ -1,1 +1,1 @@
-export default function routesFlattener(params: any): any[];
+export default function routesFlattener(params: any): any;

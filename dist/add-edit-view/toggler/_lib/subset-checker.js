@@ -1,4 +1,4 @@
-export default function (subSet, mainSet) {
+export default (function (subSet, mainSet) {
     var subSetLength = subSet.length;
     if (subSetLength < mainSet.length) {
         for (var i = 0; i < subSetLength; i++) {
@@ -8,5 +8,5 @@ export default function (subSet, mainSet) {
         }
         return true;
     }
-};
+});
 //# sourceMappingURL=subset-checker.js.map

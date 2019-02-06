@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-export default function (routes, route, selected) {
+export default (function (routes, route, selected) {
     var group = route.group;
     if (!group) {
         return;
@@ -8,5 +8,5 @@ export default function (routes, route, selected) {
     _.each(groupRoutes, function (route) {
         _.extend(route, { selected: selected });
     });
-};
+});
 //# sourceMappingURL=group-toggler.js.map

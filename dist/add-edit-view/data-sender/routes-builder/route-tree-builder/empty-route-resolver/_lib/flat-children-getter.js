@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-export default function (paths, selectedRoutes) {
+export default (function (paths, selectedRoutes) {
     var path = [''].concat(paths).join('/');
     var childSize = paths.length + 1;
     return _.reduce(selectedRoutes, function (children, route) {
@@ -9,5 +9,5 @@ export default function (paths, selectedRoutes) {
         }
         return children;
     }, []);
-};
+});
 //# sourceMappingURL=flat-children-getter.js.map

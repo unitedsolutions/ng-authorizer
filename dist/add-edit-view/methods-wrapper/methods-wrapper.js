@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-export default function (methods) {
+export default (function (methods) {
     return _.mapValues(methods, function (method) {
         return function () {
             var args = [];
@@ -13,5 +13,5 @@ export default function (methods) {
             return method.apply(this, args);
         };
     });
-};
+});
 //# sourceMappingURL=methods-wrapper.js.map
