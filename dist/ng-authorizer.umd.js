@@ -122,7 +122,7 @@ var ngOnDestroy = function () {
     ['remover', 'changer'].forEach(function (type) { return _this[type].complete(); });
 };
 
-var methodsWrapper = function (methods) {
+var methodsWrapper = (function (methods) {
     return _.mapValues(methods, function (method) {
         return function () {
             var args = [];
@@ -136,7 +136,7 @@ var methodsWrapper = function (methods) {
             return method.apply(this, args);
         };
     });
-};
+});
 
 var circleClass = function (selected) {
     var classes = [];
@@ -146,25 +146,25 @@ var circleClass = function (selected) {
     return classes.join(' ');
 };
 
-var defaultChecker = function (routes) {
+var defaultChecker = (function (routes) {
     for (var _i = 0, routes_1 = routes; _i < routes_1.length; _i++) {
         var route = routes_1[_i];
         if (route.default && route.selected) {
             return true;
         }
     }
-};
+});
 
-var routeSorter = function (desc) {
+var routeSorter = (function (desc) {
     if (desc === void 0) { desc = true; }
     return function (route1, route2) {
+        var _a;
         if (desc) {
             _a = [route1, route2], route2 = _a[0], route1 = _a[1];
         }
         return route1.paths.length - route2.paths.length;
-        var _a;
     };
-};
+});
 
 var toggleAll = function () {
     var routes = this.routes;
@@ -186,11 +186,11 @@ var toggleAll = function () {
     }
 };
 
-var defaultsClearer = function (routes) {
+var defaultsClearer = (function (routes) {
     _.each(routes, function (route) {
         route.default = false;
     });
-};
+});
 
 var defaulter = function (route) {
     if (!route.selected) {
@@ -200,7 +200,7 @@ var defaulter = function (route) {
     route.default = true;
 };
 
-var subsetChecker = function (subSet, mainSet) {
+var subsetChecker = (function (subSet, mainSet) {
     var subSetLength = subSet.length;
     if (subSetLength < mainSet.length) {
         for (var i = 0; i < subSetLength; i++) {
@@ -210,9 +210,9 @@ var subsetChecker = function (subSet, mainSet) {
         }
         return true;
     }
-};
+});
 
-var selectedDescendantChecker = function (routes, route) {
+var selectedDescendantChecker = (function (routes, route) {
     var paths = route.paths;
     for (var _i = 0, routes_1 = routes; _i < routes_1.length; _i++) {
         var _route = routes_1[_i];
@@ -221,9 +221,9 @@ var selectedDescendantChecker = function (routes, route) {
             return true;
         }
     }
-};
+});
 
-var groupToggler = function (routes, route, selected) {
+var groupToggler = (function (routes, route, selected) {
     var group = route.group;
     if (!group) {
         return;
@@ -232,9 +232,9 @@ var groupToggler = function (routes, route, selected) {
     _.each(groupRoutes, function (route) {
         _.extend(route, { selected: selected });
     });
-};
+});
 
-var relationsToggler = function (routes, route, selected) {
+var relationsToggler = (function (routes, route, selected) {
     var paths = route.paths;
     routes = routes.slice().sort(routeSorter());
     _.each(routes, function (route) {
@@ -248,7 +248,7 @@ var relationsToggler = function (routes, route, selected) {
             }
         }
     });
-};
+});
 
 var toggler = function (route, selected, noDefaultSetting) {
     if (noDefaultSetting === void 0) { noDefaultSetting = false; }
@@ -278,7 +278,7 @@ var toggler = function (route, selected, noDefaultSetting) {
 
 var typeToHttpMethodMap = { add: 'post', edit: 'patch', view: null };
 
-var parentLabelGetter = function (routes, paths) {
+var parentLabelGetter = (function (routes, paths) {
     for (var i = 0, parent, label, ancestors = [], length = paths.length; i < length; i++) {
         var parentPath = paths[i];
         var route = _.filter(routes, { path: parentPath })[0];
@@ -295,7 +295,7 @@ var parentLabelGetter = function (routes, paths) {
         label = _.last(ancestors);
     }
     return [parent, label];
-};
+});
 
 function routesFlattener(params) {
     var routes = params.routes, childrenRoutes = params.childrenRoutes, _a = params.flattened, flattened = _a === void 0 ? [] : _a, _b = params.paths, paths = _b === void 0 ? [] : _b;
@@ -343,7 +343,7 @@ function routesFlattener(params) {
     return flattened;
 }
 
-var viewStateMaker = function (type) {
+var viewStateMaker = (function (type) {
     var view = { type: type };
     var title = _.capitalize(type) + ' Role';
     var isView = type === 'view';
@@ -357,9 +357,9 @@ var viewStateMaker = function (type) {
         submitButtonTitle: submitButtonTitle,
         cancelButtonTitle: cancelButtonTitle
     });
-};
+});
 
-var pause = function (ms) { return new Promise(function (resolve) { return setTimeout(resolve, ms || 0); }); };
+var pause = (function (ms) { return new Promise(function (resolve) { return setTimeout(resolve, ms || 0); }); });
 
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -376,8 +376,8 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_$$1) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _$$1.label++; return { value: op[1], done: false };
@@ -398,8 +398,8 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 };
 var dataStater = function (role) {
     return __awaiter(this, void 0, void 0, function () {
-        var _this = this;
         var routes, selectedRoutes, formValues;
+        var _this = this;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -487,7 +487,7 @@ function emptyChildGetter(paths, originalRoutes) {
     return _.filter(children, { path: '' })[0];
 }
 
-var flatChildrenGetter = function (paths, selectedRoutes) {
+var flatChildrenGetter = (function (paths, selectedRoutes) {
     var path = [''].concat(paths).join('/');
     var childSize = paths.length + 1;
     return _.reduce(selectedRoutes, function (children, route) {
@@ -497,7 +497,7 @@ var flatChildrenGetter = function (paths, selectedRoutes) {
         }
         return children;
     }, []);
-};
+});
 
 var emptyRouteResolver = function (paths) {
     var emptyChild = emptyChildGetter(paths.slice(), this.originalRoutes);
@@ -512,12 +512,12 @@ var emptyRouteResolver = function (paths) {
     return { path: '', redirectTo: currentChildren[0] };
 };
 
-var endpointsCombiner = function (roleEndpoints, endpoints) {
+var endpointsCombiner = (function (roleEndpoints, endpoints) {
     _.each(endpoints, function (endpoints, method) {
         var _a = method, _b = roleEndpoints[_a], methodEndpoints = _b === void 0 ? [] : _b;
         roleEndpoints[method] = _.uniq(methodEndpoints.concat(endpoints));
     });
-};
+});
 
 function routeTreeBuilder(route, roleRoutes, roleEndpoints, index) {
     if (index === void 0) { index = 0; }
@@ -618,8 +618,8 @@ var __generator$1 = (undefined && undefined.__generator) || function (thisArg, b
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_$$1) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _$$1.label++; return { value: op[1], done: false };
