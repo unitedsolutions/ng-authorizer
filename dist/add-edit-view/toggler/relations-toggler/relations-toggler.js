@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import routeSorter from '../../_lib/route-sorter';
 import subsetChecker from '../_lib/subset-checker';
 import selectedDescendantChecker from '../_lib/selected-descendant-checker';
-export default function (routes, route, selected) {
+export default (function (routes, route, selected) {
     var paths = route.paths;
     routes = routes.slice().sort(routeSorter());
     _.each(routes, function (route) {
@@ -16,5 +16,5 @@ export default function (routes, route, selected) {
             }
         }
     });
-};
+});
 //# sourceMappingURL=relations-toggler.js.map

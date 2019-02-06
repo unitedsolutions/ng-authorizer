@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-export default function (type) {
+export default (function (type) {
     var view = { type: type };
     var title = _.capitalize(type) + ' Role';
     var isView = type === 'view';
@@ -13,5 +13,5 @@ export default function (type) {
         submitButtonTitle: submitButtonTitle,
         cancelButtonTitle: cancelButtonTitle
     });
-};
+});
 //# sourceMappingURL=view-state-maker.js.map
