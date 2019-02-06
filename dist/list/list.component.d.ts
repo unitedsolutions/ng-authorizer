@@ -12,7 +12,7 @@ export declare class ListComponent {
     changer: any;
     adder: any;
     publisher: any;
-    private messager(message);
+    private messager;
     constructor(dataState: DataState, notifier: Notifier, guardian: Guardian, router: Router);
     ngOnInit(): void;
     ngOnDestroy(): void;
